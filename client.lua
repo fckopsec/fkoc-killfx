@@ -16,6 +16,10 @@ AddEventHandler('gameEventTriggered', function(name, args)
 
         if victimId == PlayerPedId() then
             ApplyKillEffect()
+	elseif IsPedAPlayer(victimId) == false and IsNpcDead(victimId) then
+            if killerId == PlayerPedId() then
+                ApplyKillEffect()
+            end
         elseif IsPedAPlayer(victimId) == false then
             if IsNpcDead(victimId) then
                 ApplyKillEffect()
